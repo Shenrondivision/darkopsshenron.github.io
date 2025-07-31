@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DarkOps Shenron HQ</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veagle 3D Viewer</title>
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🛡️ DarkOps | Shenron Systems</h1>
-      <p class="subline">#Operation: Veagle | Status: LIVE</p>
-    </header>
-
-    <nav>
-      <a href="#">Dashboard</a>
-      <a href="#">Protocols</a>
-      <a href="#">AI Missions</a>
-      <a href="#">Access Logs</a>
-    </nav>
-
-    <main>
-      <h2>Welcome, Commander.</h2>
-      <p>This is your encrypted control panel. All systems are operational.</p>
-      <button onclick="reboot()">Initiate Tactical Sequence</button>
-    </main>
-
-    <footer>
-      &copy; 2025 DarkOps | Shenron Protocol Labs
-    </footer>
+  <div class="topbar">
+    <button onclick="setEnv('desert')">Desert</button>
+    <button onclick="setEnv('track')">Track</button>
+    <button onclick="setEnv('forest')">Forest</button>
+    <button onclick="toggleView()">Toggle Interior / Exterior</button>
   </div>
-
+  <div id="viewer">
+    <model-viewer id="mviewer" src="assets/car.glb"
+      environment-image="assets/desert.jpg"
+      camera-controls auto-rotate background-color="#000000">
+      <div slot="hotspot-1" data-position="0 1 0.5" data-normal="0 1 0">
+        <div class="hotspot-label">Engine</div>
+      </div>
+      <div slot="hotspot-2" data-position="0 0.8 1.2" data-normal="0 1 0">
+        <div class="hotspot-label">Battery</div>
+      </div>
+    </model-viewer>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
